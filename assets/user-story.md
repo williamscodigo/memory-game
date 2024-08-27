@@ -12,14 +12,10 @@ SO THAT I can have fun and learn at the same time.
 ```md
 GIVEN the app link
 WHEN I load the app,
-THEN I am presented with the landing page containing a screen with a start game button.
-
-WHEN I click on the start game button,
-THEN I am presented with one-player or two-player option (MODAL)
-if I choose the one-player option I will play agains the computer else two-players.
+THEN I am presented with the landing page containing a (MODAL) with a start game button and a second section with with one-player or two-player option if I choose the one-player option I will play agains the computer else two-players.
 
 WHEN I Choose between one-player or two-players option,
-THEN cards are shuffle, layout and randomly select player to start. (if time include rock, paper, scissors to choose first player to go)
+THEN cards are shuffle, layout and randomly select player to start. (if time: include rock, paper, scissors to choose first player to go)
 
 WHEN starting player have been selected
 THEN repeat the following logic until there is a winner
