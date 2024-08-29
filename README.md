@@ -1,0 +1,1 @@
+completed cards are face forward and outlined green
