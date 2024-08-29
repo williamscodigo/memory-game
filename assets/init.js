@@ -12,8 +12,33 @@ const cardStorage = [
     {
         name: "label1",
         element: undefined,
-        imgSrc: "https://cdn.vox-cdn.com/thumbor/ln4IHgPYpvNoIWpJ2Y1_c9msxXA=/0x0:2012x1341/2000x1333/filters:focal(1006x670:1007x671)/cdn.vox-cdn.com/uploads/chorus_asset/file/15483559/google2.0.0.1441125613.jpg"
-    }
+        imgSrc: ""
+    },
+    // {
+    //     name: "label2",
+    //     element: undefined,
+    //     imgSrc: ""
+    // },
+    // {
+    //     name: "label3",
+    //     element: undefined,
+    //     imgSrc: ""
+    // },
+    // {
+    //     name: "label4",
+    //     element: undefined,
+    //     imgSrc: ""
+    // },
+    // {
+    //     name: "label5",
+    //     element: undefined,
+    //     imgSrc: ""
+    // },
+    // {
+    //     name: "label6",
+    //     element: undefined,
+    //     imgSrc: ""
+    // }
 ];
 
 
@@ -25,8 +50,9 @@ const addPanel = function (content, name) {
 }
 
 cardStorage.forEach((value, index, array) => {
+    console.log("test")
     const imgEl = document.createElement("img")
-    imgEl.src = value.imgSrc;
+    // imgEl.src = value.imgSrc;
     array[index].element = addPanel(imgEl, value.name)
 }) 
 

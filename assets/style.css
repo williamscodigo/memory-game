@@ -1,0 +1,37 @@
+h1 {
+    justify-content: center;
+    text-align: center;
+    font-size: 30px;
+}
+
+h3 {
+    display: inline-block;
+}
+button {
+    display: inline-block;
+}
+#cards {
+    display: flex;
+    justify-content: center;
+}
+#cards div {
+    border: black solid 2px;
+    flex-basis: 10%;
+    height: 150px;
+    /* flex: 1 */
+
+}
+
+#settings-popup {
+    display: none;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 75%;
+    height: 75%;
+    border: black solid 2px;
+    border-radius: 50px;
+    background-color: #fff;
+    padding: 50px;
+}
