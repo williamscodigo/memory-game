@@ -8,11 +8,13 @@ const score = $("#score"),
     cards = $("#cards");
 
 
-const cardStorage = [{
-    name: "label1",
-    element: undefined,
-    imgSrc: "https://cdn.vox-cdn.com/thumbor/ln4IHgPYpvNoIWpJ2Y1_c9msxXA=/0x0:2012x1341/2000x1333/filters:focal(1006x670:1007x671)/cdn.vox-cdn.com/uploads/chorus_asset/file/15483559/google2.0.0.1441125613.jpg"
-}];
+const cardStorage = [
+    {
+        name: "label1",
+        element: undefined,
+        imgSrc: "https://cdn.vox-cdn.com/thumbor/ln4IHgPYpvNoIWpJ2Y1_c9msxXA=/0x0:2012x1341/2000x1333/filters:focal(1006x670:1007x671)/cdn.vox-cdn.com/uploads/chorus_asset/file/15483559/google2.0.0.1441125613.jpg"
+    }
+];
 
 
 
