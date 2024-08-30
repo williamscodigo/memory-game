@@ -187,11 +187,13 @@ const player2Text = "[Undefined]"
 let currentPlayer = Math.random() * 2 | 0;
 
 // players - array
-let players = [
-    {},
-    {}
-]
-// (function () {//not sure why this making this out of scope isnt
+
+let players;
+(() => {
+    players = [
+        {},
+        {}
+    ]
     let player1score = 0;
     let player2score = 0;
     Object.defineProperty(players[0], "score", {
@@ -204,7 +206,7 @@ let players = [
         set: (value) => (($("#score2").innerText = `${enableComputer ? "Computer" : "Player 2"} Score: ${value}`), player2score = value),
         get: (value) => player2score
     })
-// })()
+})()
 // resetGame - function
 const resetGame = () => {
     initCardStorage();
