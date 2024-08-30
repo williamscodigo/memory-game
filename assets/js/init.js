@@ -181,16 +181,30 @@ const startGame = {
     }
 }
 // setPlayerTwoText("text") - function
-const setPlayerTwoText = text => $("#score2").innerText = text;
+const player2Text = "[Undefined]"
 
 
 let currentPlayer = Math.random() * 2 | 0;
 
 // players - array
 let players = [
-    {score: 0},
-    {score: 0}
+    {},
+    {}
 ]
+// (function () {//not sure why this making this out of scope isnt
+    let player1score = 0;
+    let player2score = 0;
+    Object.defineProperty(players[0], "score", {
+        // value: 0,
+        set: (value) => (($("#score").innerText = `Player 1 Score: ${value}`), player1score = value),
+        get: (value) => player1score
+    })
+    Object.defineProperty(players[1], "score"  , {
+        // value: 0,
+        set: (value) => (($("#score2").innerText = `${enableComputer ? "Computer" : "Player 2"} Score: ${value}`), player2score = value),
+        get: (value) => player2score
+    })
+// })()
 // resetGame - function
 const resetGame = () => {
     initCardStorage();
@@ -201,10 +215,8 @@ const resetGame = () => {
     //startGame.show()
     setPlayerTwoText("[Undefined]");//this is so begin-game.js person doesnt forget to fix this
     currentPlayer =  Math.random() * 2 | 0;
-    players = [
-        {score: 0},
-        {score: 0}
-    ]
+    players[0].score = 0;
+    players[1].score = 0;
 }
 
 // pressCard.add((cardObject)=> {logic}) - function

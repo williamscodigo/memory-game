@@ -15,7 +15,7 @@ init library stuff:
     enableComputer - default: false;
     canInteractWithGame - default: false;
     startGame.hide - function
-    setPlayerTwoText("text") - function
+    player2Text - default: "[Undefined]"
     resetGame - function
 */
 
