@@ -5,18 +5,17 @@ Library Documentation:
 
 onePlayerIsSelected - default: false
 twoPlayersIsSelected - default: false
-onBeginPress = function - default: undefined
+addBeginPress(func) - function
 enableComputer - default: false;
 canInteractWithGame - default: false;
 startGame.hide - function
-playerTwoText - default = "[Undefined]"
+setPlayerTwoText("text") - function
 resetGame - function
 
 pressCard.add((cardObject)=> {logic}) - function
-gameLoop.add - function
 flipCard(cardObject) - function
 cardObject.completed - boolean - default: false
-Players - array
+players - array
 flippedCards - array
 currentPlayer - 0 or 1
 
@@ -27,16 +26,12 @@ startGame.show
 
 
 
-const $ = function () {
-    const query = document.querySelectorAll(...arguments);
-    return query.length === 1 ? query[0] : query;
-}
+const $ = selector => document.querySelector(selector);
+const $$ = selector => [...document.querySelectorAll(selector)];
 
-let difficulty = 6;
-const score = $("#score"),
-    score2 = $("#score2"),
-    cards = $("#cards");
-const decideCardStorage = function () {
+
+//randomizes and duplicates selected cards given difficulty
+const decideCardStorage = function (difficulty) {
 
     const cardList = [
         {
@@ -110,67 +105,128 @@ const decideCardStorage = function () {
         
     ];
     const cardList2 = [];
-    for (let i = 0; i < 6; i++) {
+    for (let i = 0; i < difficulty; i++) {
         let cardListIndex = Math.random()*cardList.length | 0;
         cardList2.push(cardList.splice(cardListIndex, 1)[0])
         cardList2.push(cardList2.at(-1))
     }
     const cardStorage = [];
-    for (let i = 0; i < 12; i++) {
+    for (let i = 0; i < difficulty*2; i++) {
         let cardListIndex = Math.random()*cardList2.length | 0;
         cardStorage.push(cardList2.splice(cardListIndex, 1)[0])
     }
     return cardStorage;
 }
-const cardStorage = decideCardStorage()
+let cardStorage;
+const initCardStorage  = function () {
+    cardStorage = decideCardStorage(6);
 
-const addPanel = function (content, name) {
-    const element = cards.appendChild(document.createElement("div"))
-    element.appendChild(content);
-    element.name = name;
-    return element;
+    //these two things setup the cardObjects in the html and add stuff to the objects themselves
+    const addCard = function (content, name) {
+        const element = cards.appendChild(document.createElement("div"))
+        element.appendChild(content);
+        element.name = name;
+        return element;
+    }
+
+    cardStorage.forEach((value, index, array) => {
+        const imgEl = document.createElement("img")
+        imgEl.src = value.imgSrc;
+        imgEl.alt = value.name;
+        array[index].completed = false;
+        array[index].index = index;
+        array[index].element = addCard(imgEl, value.name)
+    }) 
+}
+initCardStorage();
+
+
+// onePlayerIsSelected - default: false
+// twoPlayersIsSelected - default: false
+let onePlayerIsSelected = false;
+let twoPlayersIsSelected = false;
+(() => {
+    $("#one-player").checked = false;
+    $("#two-player").checked = false;
+    $("#one-player").addEventListener("click", () => (onePlayerIsSelected = $("#one-player").checked, twoPlayersIsSelected = !$("#one-player").checked))
+    $("#two-player").addEventListener("click", () => (twoPlayersIsSelected = $("#two-player").checked, onePlayerIsSelected = !$("#two-player").checked))
+})()
+
+
+// onBeginPress = function - default: undefined
+let addBeginPress = func => $("#begin").addEventListener("click", func);
+
+
+// enableComputer - default: false;
+let enableComputer = false;
+
+// canInteractWithGame - default: false;
+let canInteractWithGame = false;
+
+// startGame.show - function
+// startGame.hide - function
+// startGame.modify(player1Score, player2Score, whichPlayerWon = "First Player" | "Second Player" | "Computer") - function
+const startGame = {
+    show: () => $("#settings-popup").style.display = "block",
+    hide: () => $("#settings-popup").style.display = "none",
+    modify: (player1Score, player2Score, whichPlayerWon) => {
+        const endPlayer1El = $("#endPlayer1")
+        const endPlayer2El = $("#endPlayer2")
+        const winner = $("#winner")
+        const modified = $("#modified")
+        modified.style.display = "block";
+        endPlayer1El.innerText = `Player 1: ${player1Score}`
+        endPlayer2El.innerText = enableComputer ? `Computer: ${player2Score}` : `Player 2: ${player2Score}`
+        winner.innerText = `${whichPlayerWon} has Won!`
+    }
+}
+// setPlayerTwoText("text") - function
+const setPlayerTwoText = text => $("#score2").innerText = text;
+
+
+let currentPlayer = Math.random() * 2 | 0;
+
+// players - array
+let players = [
+    {score: 0},
+    {score: 0}
+]
+// resetGame - function
+const resetGame = () => {
+    initCardStorage();
+    $("#one-player").checked = false;
+    $("#two-player").checked = false;
+
+    //this thing isnt going to be a thing because the function gets run after this modal gets put up
+    //startGame.show()
+    setPlayerTwoText("[Undefined]");//this is so begin-game.js person doesnt forget to fix this
+    currentPlayer =  Math.random() * 2 | 0;
+    players = [
+        {score: 0},
+        {score: 0}
+    ]
 }
 
-cardStorage.forEach((value, index, array) => {
-    const imgEl = document.createElement("img")
-    imgEl.src = value.imgSrc;
-    imgEl.alt = value.name;
-    array[index].index = index;
-    array[index].element = addPanel(imgEl, value.name)
-}) 
-
-const gameLoop = {
-    loops: [],
-    add: function (name, func) {
-        this.loops.push({name, func})
-    }
-};
-
-const players = [
-    {
-        score: 0
-    },
-    {
-        score: 0
-    }
-]
-const currentPlayer =  Math.random() * 2 | 0;
-
+// pressCard.add((cardObject)=> {logic}) - function
 const pressCard = {
     add: function (func) {
-        cardStorage.forEach(card => card.element.addEventListener("click", () => func(card)))
+        cardStorage.forEach(card => card.element.addEventListener("click", () => !card.completed && func(card)))
     }
 }
-
-
-
+// flippedCards - array
 const flippedCards = [];
-flipCard = function (card) {
-    //ui stuff
-    card.element.style.opacity = .5;
-    flippedCards.push(card)
+
+// flipCard(cardObject) - function
+
+const flipCard = cardObject => {
+    let cardPosition;
+    if (!flippedCards.filter((card, i) => card.index === cardObject.index && ((cardPosition = i), true)).length) {//if card isnt flipped
+        flippedCards.push(cardObject)
+        cardObject.element.classList.add("flipped")
+        console.log("test")
+    } else {//if card is flipped
+        flippedCards.splice(cardPosition, 1);
+        cardObject.element.classList.remove("flipped")
+    }
 
 }
-
-// cards.children[0].name == cards.children[5].name 
-// cards.children[0].classList.add("completed");

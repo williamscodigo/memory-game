@@ -11,10 +11,13 @@ Tasks:
 init library stuff:
     onePlayerIsSelected - default: false
     twoPlayersIsSelected - default: false
-    onBeginPress = function - default: undefined
+    addBeginPress(func) - function 
     enableComputer - default: false;
     canInteractWithGame - default: false;
     startGame.hide - function
-    playerTwoText - default = "[Undefined]"
+    setPlayerTwoText("text") - function
     resetGame - function
 */
+
+//comment this when working on this file
+startGame.hide();
