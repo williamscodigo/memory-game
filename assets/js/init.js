@@ -235,7 +235,6 @@ const flipCard = cardObject => {
     if (!flippedCards.filter((card, i) => card.index === cardObject.index && ((cardPosition = i), true)).length) {//if card isnt flipped
         flippedCards.push(cardObject)
         cardObject.element.classList.add("flipped")
-        console.log("test")
     } else {//if card is flipped
         flippedCards.splice(cardPosition, 1);
         cardObject.element.classList.remove("flipped")
