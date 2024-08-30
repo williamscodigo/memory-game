@@ -1,3 +1,33 @@
+## ui stuff
+    make it look pretty with tailwind
+
+## init: init.js
+    Do the ui integration or declare the following values
+
+    onePlayerIsSelected - default: false
+    twoPlayersIsSelected - default: false
+    onBeginPress = function - default: undefined
+    enableComputer - default: false;
+    canInteractWithGame - default: false;
+    startGame.hide - function
+    playerTwoText - default = "[Undefined]"
+    resetGame - function
+
+    pressCard.add((cardObject)=> {logic}) - function
+    gameLoop.add - function
+    flipCard(cardObject) - function
+    cardObject.completed - boolean - default: false
+    Players - array
+    flippedCards - array
+    currentPlayer - 0 or 1
+
+    players - object
+    startGame.modify(player1Score, player2Score, whichPlayerWon = "First Player" | "Second Player" | "Computer") - function
+    startGame.show
+
+## computer ai: computer.js
+    yet to be decided
+
 ## modal popup stuff: begin-button.js
 
 this is the first thing that you see
