@@ -15,11 +15,20 @@ button {
     justify-content: center;
 }
 #cards div {
+    position: relative;
     border: black solid 2px;
     flex-basis: 10%;
     height: 150px;
     /* flex: 1 */
+    overflow: hidden;
 
+}
+#cards div img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
 }
 
 #settings-popup {

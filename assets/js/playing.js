@@ -7,7 +7,7 @@ this file should be accomplishing these tasks:
 
 using these functions in the init library:
 
-pressCard.add - function
+pressCard.add((cardObject)=> {logic}) - function
 gameLoop.add - function
 flipCard(cardObject) - function
 cardObject.completed - boolean - default: false
@@ -18,4 +18,8 @@ currentPlayer - 0 or 1
 //later when Alex has the computer ai thing figured out he'll tell you how to implement it here.
 
 //make the following function recursive for game loop
+
+pressCard.add((cardObject)=> {
+    //card press logic
+})
 const nextTurn = function () {};

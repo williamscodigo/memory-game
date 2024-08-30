@@ -1,4 +1,4 @@
-## modal popup stuff:
+## modal popup stuff: begin-button.js
 
 this is the first thing that you see
 
@@ -10,7 +10,7 @@ when you click the begin button:
     if either are selected then hide modal and undo inability to interact with cards
 
 
-## starting game:
+## starting game: begin-button.js
 
 all cards should be face down
 
@@ -18,7 +18,7 @@ Player score text should be Player 2 if two players is selected and if they aren
 
 
 
-## interacting with game:
+## interacting with game: playing.js
 
 when you click on a card then that card gets flipped
 
@@ -27,7 +27,7 @@ when you flip a card the card gets flipped
  if that happens and there are two cards selected that are then the current player gets +1 score and cards remain flipped up with some distinction between old flipped cards and newly flipped cards
  if not both cards get flipped down and it becomes the other players turn (BUT only after a player failed to make a match)
  
- ## ending game:
+ ## ending game: ending-game.js
 
 if all cards are face up then the game has ended
 

@@ -1,25 +1,26 @@
 /*
 Library Documentation:
 
+onePlayerIsSelected - default: false
+twoPlayersIsSelected - default: false
+onBeginPress = function - default: undefined
+enableComputer - default: false;
+canInteractWithGame - default: false;
+startGame.hide - function
+playerTwoText - default = "[Undefined]"
+resetGame - function
 
-//adds things to a gameLoop array that will later be sorted out in main.js for order purposes
-gameLoop.add(name_of_function, function)
+pressCard.add((cardObject)=> {logic}) - function
+gameLoop.add - function
+flipCard(cardObject) - function
+cardObject.completed - boolean - default: false
+Players - array
+flippedCards - array
+currentPlayer - 0 or 1
 
-
-//this is an array that contains objects denoting player values
-players
-//the objects it would contain look like this:
-{
-    score: 0
-}
-
-
-
-//this is a function that adds an event listener when you click a card
-pressCard.add(function (card) {console.log(card.name)})
-
-
-
+players - object
+startGame.modify(player1Score, player2Score, whichPlayerWon = "First Player" | "Second Player" | "Computer") - function
+startGame.show
 */
 
 
@@ -38,68 +39,89 @@ const cardStorage = [
     {
         name: "angular",
         element: undefined,
-        imgSrc: "./assets/images/angular.js"
+        imgSrc: "./assets/images/angular.png"
     },
     {
         name: "boostrap",
         element: undefined,
-        imgSrc: "./assets/images/bootstrap.js"
+        imgSrc: "./assets/images/bootstrap.png"
     },
     {
         name: "bulma",
         element: undefined,
-        imgSrc: "./assets/images/bulma.js"
+        imgSrc: "./assets/images/bulma.png"
     },
     {
         name: "chrome",
         element: undefined,
-        imgSrc: "./assets/images/chrome.js"
+        imgSrc: "./assets/images/chrome.png"
     },
     {
         name: "css3",
         element: undefined,
-        imgSrc: "./assets/images/css3.js"
+        imgSrc: "./assets/images/css3.png"
     },
     {
         name: "html5",
         element: undefined,
-        imgSrc: "./assets/images/html5.js"
+        imgSrc: "./assets/images/html5.png"
     },
     {
-        name: "boostrap",
+        name: "javascript",
         element: undefined,
-        imgSrc: "./assets/images/bootstrap.js"
+        imgSrc: "./assets/images/javascript.png"
     },
     {
-        name: "boostrap",
+        name: "mongodb",
         element: undefined,
-        imgSrc: "./assets/images/bootstrap.js"
+        imgSrc: "./assets/images/mongodb.png"
     },
     {
-        name: "boostrap",
+        name: "mysql",
         element: undefined,
-        imgSrc: "./assets/images/bootstrap.js"
+        imgSrc: "./assets/images/mysql.png"
     },
     {
-        name: "boostrap",
+        name: "node",
         element: undefined,
-        imgSrc: "./assets/images/bootstrap.js"
+        imgSrc: "./assets/images/node.png"
     },
     {
-        name: "boostrap",
+        name: "npm",
         element: undefined,
-        imgSrc: "./assets/images/bootstrap.js"
+        imgSrc: "./assets/images/npm.png"
     },
     {
-        name: "boostrap",
+        name: "react",
         element: undefined,
-        imgSrc: "./assets/images/bootstrap.js"
+        imgSrc: "./assets/images/react.png"
+    },
+    {//make this a png later
+        name: "safari",
+        element: undefined,
+        imgSrc: "./assets/images/safari.jpeg"
     },
     {
-        name: "boostrap",
+        name: "tailwindcss.png",
         element: undefined,
-        imgSrc: "./assets/images/bootstrap.js"
+        imgSrc: "./assets/images/tailwindcss.png"
+    },
+    {
+        name: "typescript",
+        element: undefined,
+        imgSrc: "./assets/images/typescript.png"
+    },
+    {
+        name: "v8",
+        element: undefined,
+        imgSrc: "./assets/images/v8.png"
+    },
+    {
+        name: "vue",
+        element: undefined,
+        imgSrc: "./assets/images/vue.png"
     }
+    
 ];
 
 
