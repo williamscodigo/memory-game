@@ -4,21 +4,32 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>memory game</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+    
     <link rel="stylesheet" href="./assets/css/style.css" />
 
-    <script defer src="./assets/js/tailwindStyles.js"></script>
-    <script defer src="./assets/js/initialUI.js"></script>
+    <!-- <script defer src="./assets/js/tailwindStyles.js"></script> -->
     <script defer src="./assets/js/init.js"></script>
+
     <script defer src="./assets/js/begin-button.js"></script>
-    <script defer src="./assets/js/opponent.js"></script>
+    <script defer src="./assets/js/computer.js"></script>
     <script defer src="./assets/js/playing.js"></script>
     <script defer src="./assets/js/check-if-game-has-ended.js"></script>
     <script defer src="./assets/js/main.js"></script>
   </head>
   <body>
-    <main class="h-screen h-svh grid grid-template-rows-1 max-w-5xl mx-auto">
-        <!--js generated content!-->
-    </main>
+      <h1>Memory Game</h1>
+      <h3 id="score">Player Score</h3>
+      <h3 id="score2">[Undefined]</h3>
+      <div id="cards">
+          <!-- here we generate div cards using document.createElement -->
+      </div>
+      <div id="settings-popup">
+          <h3>One Player</h3>
+          <input type="radio" id="one-player" name="player-select">
+          <h3>Two Players</h3>
+          <input type="radio" id="two-player" name="player-select">
+          <button id="begin">Begin</button>
+      </div>
   </body>
 </html>

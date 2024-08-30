@@ -1,32 +1,36 @@
-Task Outline:
+## modal popup stuff:
 
-One person works on css (tailwind)
+this is the first thing that you see
 
-Javscript Tasks:
-    begin-button
-    check-if-game-has-ended
-    opponent
-    playing
-    main - glue that puts all of those parts together
+make sure cards in the background cant be clicked while this popup is showing
 
-
-
-extra stuff:
+when you click the begin button:
+    first check to see if you have first or second player selected and if neither is selected then do nothing
+    if one player is selected then enableBot variable with be set to to true (default is false)
+    if either are selected then hide modal and undo inability to interact with cards
 
 
-completed cards are face forward and outlined green
+## starting game:
+
+all cards should be face down
+
+Player score text should be Player 2 if two players is selected and if they arent selected then it should read Computer Score
 
 
-<h1>Memory Game</h1>
-<h3 id="score">Player Score</h3>
-<h3 id="score2">[Undefined]</h3>
-<div id="cards">
-    <!-- here we generate div cards using document.createElement -->
-</div>
-<div id="settings-popup">
-    <h3>One Player</h3>
-    <input type="radio" id="one-player" name="player-select">
-    <h3>Two Players</h3>
-    <input type="radio" id="two-player" name="player-select">
-    <button id="begin">Begin</button>
-</div>
+
+## interacting with game:
+
+when you click on a card then that card gets flipped
+
+
+when you flip a card the card gets flipped
+ if that happens and there are two cards selected that are then the current player gets +1 score and cards remain flipped up with some distinction between old flipped cards and newly flipped cards
+ if not both cards get flipped down and it becomes the other players turn (BUT only after a player failed to make a match)
+ 
+ ## ending game:
+
+if all cards are face up then the game has ended
+
+when the game has ended then show an alternated version of the begining modal
+that shows who won the game and what the final score was
+
