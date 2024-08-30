@@ -30,100 +30,97 @@ const $ = function () {
     return query.length === 1 ? query[0] : query;
 }
 
+let difficulty = 6;
 const score = $("#score"),
     score2 = $("#score2"),
     cards = $("#cards");
+const decideCardStorage = function () {
 
-
-const cardStorage = [
-    {
-        name: "angular",
-        element: undefined,
-        imgSrc: "./assets/images/angular.png"
-    },
-    {
-        name: "boostrap",
-        element: undefined,
-        imgSrc: "./assets/images/bootstrap.png"
-    },
-    {
-        name: "bulma",
-        element: undefined,
-        imgSrc: "./assets/images/bulma.png"
-    },
-    {
-        name: "chrome",
-        element: undefined,
-        imgSrc: "./assets/images/chrome.png"
-    },
-    {
-        name: "css3",
-        element: undefined,
-        imgSrc: "./assets/images/css3.png"
-    },
-    {
-        name: "html5",
-        element: undefined,
-        imgSrc: "./assets/images/html5.png"
-    },
-    {
-        name: "javascript",
-        element: undefined,
-        imgSrc: "./assets/images/javascript.png"
-    },
-    {
-        name: "mongodb",
-        element: undefined,
-        imgSrc: "./assets/images/mongodb.png"
-    },
-    {
-        name: "mysql",
-        element: undefined,
-        imgSrc: "./assets/images/mysql.png"
-    },
-    {
-        name: "node",
-        element: undefined,
-        imgSrc: "./assets/images/node.png"
-    },
-    {
-        name: "npm",
-        element: undefined,
-        imgSrc: "./assets/images/npm.png"
-    },
-    {
-        name: "react",
-        element: undefined,
-        imgSrc: "./assets/images/react.png"
-    },
-    {//make this a png later
-        name: "safari",
-        element: undefined,
-        imgSrc: "./assets/images/safari.jpeg"
-    },
-    {
-        name: "tailwindcss.png",
-        element: undefined,
-        imgSrc: "./assets/images/tailwindcss.png"
-    },
-    {
-        name: "typescript",
-        element: undefined,
-        imgSrc: "./assets/images/typescript.png"
-    },
-    {
-        name: "v8",
-        element: undefined,
-        imgSrc: "./assets/images/v8.png"
-    },
-    {
-        name: "vue",
-        element: undefined,
-        imgSrc: "./assets/images/vue.png"
+    const cardList = [
+        {
+            name: "angular",
+            imgSrc: "./assets/images/angular.png"
+        },
+        {
+            name: "boostrap",
+            imgSrc: "./assets/images/bootstrap.png"
+        },
+        {
+            name: "bulma",
+            imgSrc: "./assets/images/bulma.png"
+        },
+        {
+            name: "chrome",
+            imgSrc: "./assets/images/chrome.png"
+        },
+        {
+            name: "css3",
+            imgSrc: "./assets/images/css3.png"
+        },
+        {
+            name: "html5",
+            imgSrc: "./assets/images/html5.png"
+        },
+        {
+            name: "javascript",
+            imgSrc: "./assets/images/javascript.png"
+        },
+        {
+            name: "mongodb",
+            imgSrc: "./assets/images/mongodb.png"
+        },
+        {
+            name: "mysql",
+            imgSrc: "./assets/images/mysql.png"
+        },
+        {
+            name: "node",
+            imgSrc: "./assets/images/node.png"
+        },
+        {
+            name: "npm",
+            imgSrc: "./assets/images/npm.png"
+        },
+        {
+            name: "react",
+            imgSrc: "./assets/images/react.png"
+        },
+        {//make this a png later
+            name: "safari",
+            imgSrc: "./assets/images/safari.jpeg"
+        },
+        {
+            name: "tailwindcss.png",
+            imgSrc: "./assets/images/tailwindcss.png"
+        },
+        {
+            name: "typescript",
+            imgSrc: "./assets/images/typescript.png"
+        },
+        {
+            name: "v8",
+            imgSrc: "./assets/images/v8.png"
+        },
+        {
+            name: "vue",
+            imgSrc: "./assets/images/vue.png"
+        }
+        
+    ];
+    const cardList2 = [];
+    for (let i = 0; i < 6; i++) {
+        let cardListIndex = Math.random()*cardList.length | 0;
+        cardList2.push(cardList.splice(cardListIndex, 1)[0])
+        cardList2.push(cardList2.at(-1))
     }
-    
-];
-
+    const cardStorage = [];
+    for (let i = 0; i < 12; i++) {
+        let cardListIndex = Math.random()*cardList2.length | 0;
+        cardStorage.push(cardList2.splice(cardListIndex, 1)[0])
+    }
+    return cardStorage;
+}
+const cardStorage = decideCardStorage()
 
 const addPanel = function (content, name) {
     const element = cards.appendChild(document.createElement("div"))
