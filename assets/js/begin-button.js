@@ -17,4 +17,19 @@ init library stuff:
     startGame.hide - function
     playerTwoText - default = "[Undefined]"
     resetGame - function
-*/
+//
+
+function chooseStarter(players) {
+    let randomNumber = Math.random();
+    let starter;
+
+    if (players === 1) {
+        starter = randomNumber < 0.5 ? "Player starts!" : "Computer starts!";
+    } else if (players === 2) {
+        starter = randomNumber < 0.5 ? "Player 1 starts!" : "Player 2 starts!";
+    } else {
+        starter = "Invalid number of players.";
+    }
+
+    document.getElementById("result").innerText = starter;
+}
