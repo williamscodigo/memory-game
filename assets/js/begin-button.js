@@ -17,4 +17,28 @@ init library stuff:
     startGame.hide - function
     player2Text - default: "[Undefined]"
     resetGame - function
-//
+*/
+
+//comment this when working on this file
+//startGame.hide();
+
+addBeginPress(() => {
+    if(twoPlayersIsSelected) {
+       // resetGame();
+        player2Text = 'Player 2'; 
+        players[1].score = 0; //set player2 initial score
+        canInteractWithGame = true;
+        startGame.hide();
+    }else if(onePlayerIsSelected){
+       // resetGame();
+        player2Text = 'Computer';
+        enableComputer = true;
+        players[1].score = 0; //set player2 initial score
+        canInteractWithGame = true;
+        startGame.hide();
+    }else{
+        //no radio button option selected!
+        console.log('ui: must choose and option: one player or two players');
+        return;
+    }
+})
