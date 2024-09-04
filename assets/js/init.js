@@ -166,6 +166,9 @@ let canInteractWithGame = false;
 // startGame.show - function
 // startGame.hide - function
 // startGame.modify(player1Score, player2Score, whichPlayerWon = "First Player" | "Second Player" | "Computer") - function
+
+// setPlayerTwoText - string
+let player2Text = "[Undefined]"
 const startGame = {
     show: () => $("#settings-popup").style.display = "block",
     hide: () => $("#settings-popup").style.display = "none",
@@ -176,12 +179,10 @@ const startGame = {
         const modified = $("#modified")
         modified.style.display = "block";
         endPlayer1El.innerText = `Player 1: ${player1Score}`
-        endPlayer2El.innerText = enableComputer ? `Computer: ${player2Score}` : `Player 2: ${player2Score}`
+        endPlayer2El.innerText = `${player2Text}: ${player2Score}`;
         winner.innerText = `${whichPlayerWon} has Won!`
     }
 }
-// setPlayerTwoText("text") - function
-let player2Text = "[Undefined]"
 
 
 let currentPlayer = Math.random() * 2 | 0;
