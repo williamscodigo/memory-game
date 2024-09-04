@@ -216,7 +216,7 @@ const resetGame = () => {
 
     //this thing isnt going to be a thing because the function gets run after this modal gets put up
     //startGame.show()
-    setPlayerTwoText("[Undefined]");//this is so begin-game.js person doesnt forget to fix this
+    //setPlayerTwoText("[Undefined]");//this is so begin-game.js person doesnt forget to fix this
     currentPlayer =  Math.random() * 2 | 0;
     players[0].score = 0;
     players[1].score = 0;
