@@ -181,7 +181,7 @@ const startGame = {
     }
 }
 // setPlayerTwoText("text") - function
-const player2Text = "[Undefined]"
+let player2Text = "[Undefined]"
 
 
 let currentPlayer = Math.random() * 2 | 0;
@@ -203,7 +203,7 @@ let players;
     })
     Object.defineProperty(players[1], "score"  , {
         // value: 0,
-        set: (value) => (($("#score2").innerText = `${enableComputer ? "Computer" : "Player 2"} Score: ${value}`), player2score = value),
+        set: (value) => (($("#score2").innerText = `${player2Text} Score: ${value}`), player2score = value),
         get: (value) => player2score
     })
 })()
