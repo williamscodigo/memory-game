@@ -117,11 +117,16 @@ const decideCardStorage = function (difficulty) {
     }
     return cardStorage;
 }
+
+
 let cardStorage;
+
+const cards = $('#cards');
 const initCardStorage  = function () {
     cardStorage = decideCardStorage(6);
 
     //these two things setup the cardObjects in the html and add stuff to the objects themselves
+   
     const addCard = function (content, name) {
         const element = cards.appendChild(document.createElement("div"))
         element.appendChild(content);

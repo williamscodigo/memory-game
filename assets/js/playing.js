@@ -18,8 +18,25 @@ currentPlayer - 0 or 1
 
 pressCard.add((cardObject)=> {
     //card press logic
+    flipCard(cardObject)
+    if(flippedCards.length !== 2) return;
+
+    if(flippedCards[0].name === cardObject.name){
+        flippedCards[0].completed = flippedCards[1].completed = true;
+        players[currentPlayer].score++;
+    }else{
+        currentPlayer = +!currentPlayer;
+    }
+
+    flipCard(flippedCards[1]);
+    flipCard(flippedCards[0]);
+
+   
 })
 
-
-//make the following function recursive for game loop
-const nextTurn = function () {};
+ //debugging
+//  console.log(cards);
+//  cards.addEventListener('click', function(e){
+//      const card = e.target;
+//      console.log(card);
+//  })
