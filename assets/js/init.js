@@ -161,7 +161,7 @@ let addBeginPress = func => $("#begin").addEventListener("click", func);
 let enableComputer = false;
 
 // canInteractWithGame - default: false;
-let canInteractWithGame = false;
+let canInteractWithGame = true;
 
 // startGame.show - function
 // startGame.hide - function
@@ -225,7 +225,7 @@ const resetGame = () => {
 // pressCard.add((cardObject)=> {logic}) - function
 const pressCard = {
     add: function (func) {
-        cardStorage.forEach(card => card.element.addEventListener("click", () => !card.completed && func(card)))
+        cardStorage.forEach(card => card.element.addEventListener("click", () => canInteractWithGame && !card.completed && func(card)))
     }
 }
 // flippedCards - array
@@ -239,8 +239,13 @@ const flipCard = cardObject => {
         flippedCards.push(cardObject)
         cardObject.element.classList.add("flipped")
     } else {//if card is flipped
+        canInteractWithGame = false;
+        setTimeout(()=> {
+            
         flippedCards.splice(cardPosition, 1);
         cardObject.element.classList.remove("flipped")
+            canInteractWithGame = true;
+        }, 700)
     }
 
 }

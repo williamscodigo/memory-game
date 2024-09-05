@@ -16,23 +16,25 @@
     <script defer src="./assets/js/main.js"></script>
   </head>
   <body>
-      <h1>Memory Game</h1>
-      <h3 id="score">Player 1 Score: </h3>
-      <h3 id="score2">[Undefined]</h3>
-      <div id="cards">
-          <!-- here we generate div cards using document.createElement -->
-      </div>
-      <div id="settings-popup">
-          <div id="modified">
-            <h3 id="endPlayer1">Player 1 Score:</h3>
-            <h3 id="endPlayer2">[Undefined]</h3>
-            <h3 id="winner">[Undefined]</h3>
-          </div>
-          <h3>One Player</h3>
-          <input type="radio" id="one-player" name="player-select">
-          <h3>Two Players</h3>
-          <input type="radio" id="two-player" name="player-select">
-          <button id="begin">Begin</button>
-      </div>
+      <main class="h-screen h-svh grid grid-template-rows-1 max-w-5xl mx-auto">
+        <h1 class="text-2xl font-bold">Memory Game</h1>
+        <h3 id="score">Player 1 Score: </h3>
+        <h3 id="score2">[Undefined]</h3>
+        <div id="cards">
+            <!-- here we generate div cards using document.createElement -->
+        </div>
+        <div id="settings-popup" class="grid justify-center items-center">
+            <div id="modified">
+              <h3 id="endPlayer1">Player 1 Score:</h3>
+              <h3 id="endPlayer2">[Undefined]</h3>
+              <h3 id="winner">[Undefined]</h3>
+            </div>
+            <h3 class="mb-4 font-semibold text-gray-900">One Player</h3>
+            <input type="radio" id="one-player" name="player-select">
+            <h3 class="mb-4 font-semibold text-gray-900">Two Players</h3>
+            <input type="radio" id="two-player" name="player-select">
+            <button id="begin">Begin</button>
+        </div>
+      </main>
   </body>
 </html>
