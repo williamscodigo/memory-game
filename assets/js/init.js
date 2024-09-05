@@ -108,7 +108,7 @@ const decideCardStorage = function (difficulty) {
     for (let i = 0; i < difficulty; i++) {
         let cardListIndex = Math.random()*cardList.length | 0;
         cardList2.push(cardList.splice(cardListIndex, 1)[0])
-        cardList2.push(cardList2.at(-1))
+        cardList2.push(JSON.parse(JSON.stringify(cardList2.at(-1))))
     }
     const cardStorage = [];
     for (let i = 0; i < difficulty*2; i++) {
@@ -117,16 +117,11 @@ const decideCardStorage = function (difficulty) {
     }
     return cardStorage;
 }
-
-
 let cardStorage;
-
-const cards = $('#cards');
 const initCardStorage  = function () {
     cardStorage = decideCardStorage(6);
 
     //these two things setup the cardObjects in the html and add stuff to the objects themselves
-   
     const addCard = function (content, name) {
         const element = cards.appendChild(document.createElement("div"))
         element.appendChild(content);
@@ -221,7 +216,7 @@ const resetGame = () => {
 
     //this thing isnt going to be a thing because the function gets run after this modal gets put up
     //startGame.show()
-    //setPlayerTwoText("[Undefined]");//this is so begin-game.js person doesnt forget to fix this
+    setPlayerTwoText("[Undefined]");//this is so begin-game.js person doesnt forget to fix this
     currentPlayer =  Math.random() * 2 | 0;
     players[0].score = 0;
     players[1].score = 0;

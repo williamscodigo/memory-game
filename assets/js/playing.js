@@ -17,6 +17,7 @@ currentPlayer - 0 or 1
 //later when now Zen has the computer ai thing figured out he'll tell you how to implement it here.
 
 pressCard.add((cardObject)=> {
+    console.log("test")
     //card press logic
     flipCard(cardObject)
     if(flippedCards.length !== 2) return;

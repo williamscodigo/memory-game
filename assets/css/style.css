@@ -39,6 +39,10 @@ button {
     opacity: 1;
 }
 
+#cards > div.completed {
+    opacity: 1;
+}
+
 #settings-popup {
     display: block;
     position: absolute;

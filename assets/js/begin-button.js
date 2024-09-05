@@ -20,7 +20,7 @@ init library stuff:
 */
 
 //comment this when working on this file
-//startGame.hide();
+// startGame.hide();
 
 addBeginPress(() => {
     if(twoPlayersIsSelected) {
