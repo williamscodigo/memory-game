@@ -26,7 +26,7 @@ pressCard.add((cardObject)=> {
         flippedCards[0].completed = flippedCards[1].completed = true;
         players[currentPlayer].score++;
         completed(flippedCards[0], flippedCards[1])
-        if (players[0].score + pllayers[1].score === difficulty) gameHasEnded();
+        if (players[0].score + players[1].score === difficulty) gameHasEnded();
     }else{
         currentPlayer = +!currentPlayer;
     }
