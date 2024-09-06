@@ -22,8 +22,9 @@ init library stuff:
 
 localStorage.dontPopUpFirstLoadIn === "true" && startGame.hide();
 localStorage.dontPopUpFirstLoadIn = false;
-players[1].score = 0;
+
 player2Text = localStorage.player2Text;
+players[1].score = 0;
 
 addBeginPress(() => {
 
