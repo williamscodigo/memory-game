@@ -27,5 +27,16 @@
     color: var(--lightColor);
 }
 
+.light #settings-popup{
+    background-color: var(--lightColor);
+    color: var(--darkColor);
+}
+
+
+.dark #settings-popup{
+    background-color: var(--darkColor);
+    color: var(--lightColor);
+}
+
 
 
