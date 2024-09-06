@@ -11,12 +11,12 @@ const body = $('body');
 
 
 //get mode from localStorage
-let currentMode = localStorage.getItem('mode', lightMode);
+let currentMode = localStorage.getItem('mode');
 
 //set initial currentMode and emoji
 currentMode = currentMode ? currentMode : lightMode;
 fb.textContent = currentMode === lightMode ? sun : moon;
-body.className = lightMode;
+body.className = currentMode;
 
 
 fb.addEventListener('click', function(e){
