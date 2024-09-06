@@ -22,7 +22,6 @@ button {
     height: 150px;
     /* flex: 1 */
     overflow: hidden;
-    opacity: 0.5;
 
 }
 #cards > div > img {
@@ -32,14 +31,15 @@ button {
     transform: translate(-50%, -50%);
     max-width: 80%;
     max-height: 80%;
+    opacity: 0.2;
     
 }
 
-#cards > div.flipped {
+#cards > div.flipped > img {
     opacity: 1;
 }
 
-#cards > div.completed {
+#cards > div.completed > img {
     opacity: 1;
 }
 

@@ -29,7 +29,7 @@ startGame.show
 const $ = selector => document.querySelector(selector);
 const $$ = selector => [...document.querySelectorAll(selector)];
 
-
+let difficulty = 6;
 //randomizes and duplicates selected cards given difficulty
 const decideCardStorage = function (difficulty) {
 
@@ -119,7 +119,7 @@ const decideCardStorage = function (difficulty) {
 }
 let cardStorage;
 const initCardStorage  = function () {
-    cardStorage = decideCardStorage(6);
+    cardStorage = decideCardStorage(difficulty);
 
     //these two things setup the cardObjects in the html and add stuff to the objects themselves
     const addCard = function (content, name) {
@@ -221,7 +221,10 @@ const resetGame = () => {
     players[0].score = 0;
     players[1].score = 0;
 }
-
+const completed = function (cardObject1, cardObject2) {
+    cardObject1.element.classList.add("completed")
+    cardObject2.element.classList.add("completed")
+}
 // pressCard.add((cardObject)=> {logic}) - function
 const pressCard = {
     add: function (func) {
