@@ -19,19 +19,24 @@ init library stuff:
     resetGame - function
 */
 
-//comment this when working on this file
-// startGame.hide();
+
+localStorage.dontPopUpFirstLoadIn === "true" && startGame.hide();
+localStorage.dontPopUpFirstLoadIn = false;
+players[1].score = 0;
+player2Text = localStorage.player2Text;
 
 addBeginPress(() => {
+
+
     if(twoPlayersIsSelected) {
        // resetGame();
-        player2Text = 'Player 2'; 
+       localStorage.player2Text = player2Text = 'Player 2'; 
         players[1].score = 0; //set player2 initial score
         canInteractWithGame = true;
         startGame.hide();
     }else if(onePlayerIsSelected){
        // resetGame();
-        player2Text = 'Computer';
+       localStorage.player2Text = player2Text = 'Computer';
         enableComputer = true;
         players[1].score = 0; //set player2 initial score
         canInteractWithGame = true;
@@ -41,4 +46,6 @@ addBeginPress(() => {
         console.log('ui: must choose and option: one player or two players');
         return;
     }
+    gameHasBeenPlayed && (localStorage.dontPopUpFirstLoadIn = true,
+    location.reload());
 })

@@ -117,6 +117,7 @@ const decideCardStorage = function (difficulty) {
     }
     return cardStorage;
 }
+let gameHasBeenPlayed = false;
 let cardStorage;
 const initCardStorage  = function () {
     cardStorage = decideCardStorage(difficulty);
