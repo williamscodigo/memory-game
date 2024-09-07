@@ -2,6 +2,7 @@
 const moon = '🌒';
 const sun = '🌕';
 
+//light and dark mode const for class
 const lightMode = 'light';
 const darkMode = 'dark';
 
@@ -15,7 +16,7 @@ let currentMode = localStorage.getItem('mode');
 
 //set initial currentMode and emoji
 currentMode = currentMode ? currentMode : lightMode;
-fb.textContent = currentMode === lightMode ? sun : moon;
+fb.textContent = currentMode === lightMode ? moon : sun;
 body.className = currentMode;
 
 
@@ -23,12 +24,12 @@ fb.addEventListener('click', function(e){
     e.stopPropagation();
     
     if(currentMode === lightMode){
-        fb.textContent = moon;
+        fb.textContent = sun;
         currentMode = darkMode;
         localStorage.setItem('mode', currentMode)
         body.className = darkMode;
     }else{
-        fb.textContent = sun;
+        fb.textContent = moon;
         currentMode = lightMode;
         localStorage.setItem('mode', currentMode);
         body.className = lightMode;
