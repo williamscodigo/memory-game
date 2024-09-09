@@ -5,9 +5,11 @@ main {
     left: 0;
     right: 0;
 }
+
 body{
     overflow: hidden;
 }
+
 h1 {
     justify-content: center;
     text-align: center;
@@ -17,24 +19,71 @@ h1 {
 h3 {
     display: inline-block;
 }
+
 button {
     display: inline-block;
 }
+
 #cards {
     flex-wrap: wrap;
     display: flex;
     justify-content: center;
+    /* add space/gap between cards */
+    gap: 8px;
+
 }
+
 #cards > div {
     background-color: #fff;
     position: relative;
-    border: black solid 2px;
-    flex-basis: calc(95% / 6);
+    border: black solid 1px;
+    /* accommodate for space/gap between cards from 95% to 90% */
+    flex-basis: calc(90% / 6);
     height: 150px;
     /* flex: 1 */
     overflow: hidden;
 
 }
+
+/* add hover effect to cards depending on .light or .dark mode*/
+.light #cards > div:hover {
+    cursor: pointer;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, .2), -2px -2px 2px 1px rgba(0, 0, 0, .2);
+}
+
+.dark #cards > div:hover {
+    cursor: pointer;
+    box-shadow: 1px 1px 2px 2px #FFBF00, -1px -1px 2px 2px #FFBF00;
+}
+
+/* makes players score spacebetween */
+#players-score {
+    max-width: 400px;
+    border: 1px solid lightslategray;
+    padding: 0 16px;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    margin-bottom: 24px;
+}
+
+#players-score > h3 {
+    padding: 4px;
+    border: 1px solid lightgray;
+}
+
+/* NOTE: !important needed here since above have more specificity */
+/* current turn style */
+.current-turn {
+    border: 2px solid green !important;
+}
+
+/* options-message */
+#options-message {
+    color: red;
+    font-size: small;
+}
+
 #cards > div > img {
     position: absolute;
     left: 50%;
@@ -54,19 +103,56 @@ button {
     opacity: 1;
 }
 
+
+/* MODAL STYLES */
+
 #settings-popup {
     display: block;
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    width: 75%;
+    /* changed width 75% to 50% - not much content */
+    width: 50%;
     height: 75%;
     border: black solid 2px;
     border-radius: 50px;
     background-color: #fff;
     padding: 50px;
 }
+
+/* make developers appear at the buttom */
+#developers {
+    position: absolute;
+    bottom: 16px;
+}
+
 #modified {
     display: none;
+}
+
+/* radio and button hover */
+input[type="radio"]:hover, button:hover {
+    cursor: pointer;
+}
+
+/* button styles */
+button {
+    padding: 4px 8px;
+    font-weight: 700;
+    margin-left: 16px;
+}
+
+/* make winner message appear on its own line */
+#modified h3:last-child{
+    display: block;
+    font-size: 24px;
+}
+
+
+/* cannot interact with game */
+
+.no-interaction {
+    pointer-events: none;
+    z-index: -1;
 }

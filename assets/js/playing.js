@@ -18,6 +18,7 @@ currentPlayer - 0 or 1
 
 pressCard.add((cardObject)=> {
     console.log("test")
+
     //card press logic
     flipCard(cardObject)
     if(flippedCards.length !== 2) return;
@@ -30,6 +31,9 @@ pressCard.add((cardObject)=> {
         gameHasBeenPlayed = true;
     }else{
         currentPlayer = +!currentPlayer;
+        //change current player - score styles
+        $('#score').classList.toggle('current-turn')
+        $('#score2').classList.toggle('current-turn');  
     }
 
     flipCard(flippedCards[1]);

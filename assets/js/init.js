@@ -117,6 +117,10 @@ const decideCardStorage = function (difficulty) {
     }
     return cardStorage;
 }
+
+//ref cards
+const cards = $('#cards');
+
 let gameHasBeenPlayed = false;
 let cardStorage;
 const initCardStorage  = function () {
@@ -162,7 +166,7 @@ let addBeginPress = func => $("#begin").addEventListener("click", func);
 let enableComputer = false;
 
 // canInteractWithGame - default: false;
-let canInteractWithGame = true;
+let canInteractWithGame = false;
 
 // startGame.show - function
 // startGame.hide - function
@@ -179,8 +183,8 @@ const startGame = {
         const winner = $("#winner")
         const modified = $("#modified")
         modified.style.display = "block";
-        endPlayer1El.innerText = `Player 1: ${player1Score}`
-        endPlayer2El.innerText = `${player2Text}: ${player2Score}`;
+        endPlayer1El.innerText = `Player 1 Score: ${player1Score}`
+        endPlayer2El.innerText = `${player2Text} Score: ${player2Score}`;
         winner.innerText = `${whichPlayerWon} has Won!`
     }
 }
@@ -217,7 +221,7 @@ const resetGame = () => {
 
     //this thing isnt going to be a thing because the function gets run after this modal gets put up
     //startGame.show()
-    setPlayerTwoText("[Undefined]");//this is so begin-game.js person doesnt forget to fix this
+    //setPlayerTwoText("[Undefined]");//this is so begin-game.js person doesnt forget to fix this
     currentPlayer =  Math.random() * 2 | 0;
     players[0].score = 0;
     players[1].score = 0;
