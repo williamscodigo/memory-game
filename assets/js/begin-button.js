@@ -26,25 +26,38 @@ localStorage.dontPopUpFirstLoadIn = false;
 player2Text = localStorage.player2Text;
 players[1].score = 0;
 
+const optionsMessageEl = $('#options-message');
+const msg = 'Choose an option: One Player or Two Players!';
+optionsMessageEl.textContent = ''; //set initial msg to empty
+
+
+//set styles on initial currentPlayer - scores
+currentPlayer === 0 ? $('#score').classList.add('current-turn') : $('#score2').classList.add('current-turn')
+
 addBeginPress(() => {
 
 
     if(twoPlayersIsSelected) {
        // resetGame();
+       optionsMessageEl.textContent = ''; //set msg to empty
        localStorage.player2Text = player2Text = 'Player 2'; 
+        players[0].score = 0; //set player1 initial score
         players[1].score = 0; //set player2 initial score
         canInteractWithGame = true;
         startGame.hide();
     }else if(onePlayerIsSelected){
        // resetGame();
+       optionsMessageEl.textContent = ''; //set msg to empty
        localStorage.player2Text = player2Text = 'Computer';
         enableComputer = true;
+        players[0].score = 0; //set player1 initial score
         players[1].score = 0; //set player2 initial score
         canInteractWithGame = true;
         startGame.hide();
     }else{
         //no radio button option selected!
-        console.log('ui: must choose and option: one player or two players');
+        //change this to show message on ui instead of console window
+        optionsMessageEl.textContent = msg;
         return;
     }
     gameHasBeenPlayed && (localStorage.dontPopUpFirstLoadIn = true,

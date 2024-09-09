@@ -13,9 +13,26 @@ startGame.show
 // Function to handle the end of the game
 
 const gameHasEnded = function () {
+
     //this function will be executed elsewhere but do the stuff above here
     startGame.show()
-    startGame.modify(players[0].score, players[1].score, players[0].score>players[1].score? "First Player":(enableComputer? "Computer":"Second Player"))
+    startGame.modify(players[0].score, players[1].score, determineWinnerMessage())
+
+    //game was not interactive after first playthrough
+    //this was the easiest solution i can think of at the momment
+    //display winner message for 5 seconds than reload pg
+    setTimeout(() => location.reload(), 5000);
+}
+
+function determineWinnerMessage() {
+    
+    if(players[0].score>players[1].score){
+        return "Congratulations! First Player";
+    }else if(players[0].score<players[1].score){
+       return enableComputer ? "Ops!! Computer":"Contratulations! Second Player";
+    }else{
+        return "Its A Draw!! No One"
+    }
 }
 
 // function gameHasEnded() {
