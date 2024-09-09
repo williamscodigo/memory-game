@@ -1,7 +1,4 @@
 //dont ask how this works... only God knows now
-let firstCardG;
-let secondCardG;
-
 computerTurn = function () {
     canInteractWithGame = false;
     const turnLogic = (cardObject) => {
