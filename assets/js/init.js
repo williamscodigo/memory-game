@@ -190,7 +190,7 @@ const startGame = {
 }
 
 
-let currentPlayer = 0 //Math.random() * 2 | 0;
+let currentPlayer = Math.random() * 2 | 0;
 
 // players - array
 
