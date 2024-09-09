@@ -151,7 +151,7 @@ button {
 
 
 /* cannot interact with game */
-
+/* this rules/class is not needed no interaction is handle in code */
 .no-interaction {
     pointer-events: none;
     z-index: -1;

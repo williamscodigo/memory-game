@@ -22,6 +22,10 @@ const gameHasEnded = function () {
     //this was the easiest solution i can think of at the momment
     //display winner message for 5 seconds than reload pg
     setTimeout(() => location.reload(), 5000);
+
+    //also options and begin btn not clickable durin this 5 seconds
+    //note: this is called b4 location.reload()
+    $('#options').style.pointerEvents = 'none';
 }
 
 function determineWinnerMessage() {
