@@ -22,7 +22,6 @@ pressCard.add((cardObject)=> {
     //card press logic
     flipCard(cardObject)
     if(flippedCards.length !== 2) return;
-
     if(flippedCards[0].name === cardObject.name){
         flippedCards[0].completed = flippedCards[1].completed = true;
         players[currentPlayer].score++;
@@ -30,18 +29,23 @@ pressCard.add((cardObject)=> {
         if (players[0].score + players[1].score === difficulty) gameHasEnded();
         gameHasBeenPlayed = true;
     }else{
+        console.log("test")
         currentPlayer = +!currentPlayer;
         //change current player - score styles
         $('#score').classList.toggle('current-turn')
         $('#score2').classList.toggle('current-turn');  
     }
+    
 
     flipCard(flippedCards[1]);
     flipCard(flippedCards[0]);
+    if (currentPlayer === 1 && enableComputer) canInteractWithGame = false;
+    setTimeout(() => {
+        if (currentPlayer === 1 && enableComputer) {computerTurn()}
+    },800)
 
    
 })
-
  //debugging
 //  console.log(cards);
 //  cards.addEventListener('click', function(e){

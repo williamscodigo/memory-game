@@ -34,7 +34,7 @@ To play the game visit the page above on your browser.
 
 ## Credits
 
-Jaime Arguila, aka Alex/Zen: [https://github.com/ZenbladeJS](https://github.com/ZenbladeJS).
+Jaime Argila, aka Alex/Zen: [https://github.com/ZenbladeJS](https://github.com/ZenbladeJS).
 
 Jose W. Rivas: [https://github.com/williamscodigo](https://github.com/williamscodigo).
 

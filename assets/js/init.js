@@ -190,7 +190,7 @@ const startGame = {
 }
 
 
-let currentPlayer = Math.random() * 2 | 0;
+let currentPlayer = 0 //Math.random() * 2 | 0;
 
 // players - array
 
@@ -240,12 +240,15 @@ const pressCard = {
 const flippedCards = [];
 
 // flipCard(cardObject) - function
-
+let runComputerMaybe = () => {}
+const playedCards = [];
 const flipCard = cardObject => {
     let cardPosition;
     if (!flippedCards.filter((card, i) => card.index === cardObject.index && ((cardPosition = i), true)).length) {//if card isnt flipped
         flippedCards.push(cardObject)
+        playedCards.push(cardObject);
         cardObject.element.classList.add("flipped")
+        // runComputerMaybe()
     } else {//if card is flipped
         canInteractWithGame = false;
         setTimeout(()=> {
@@ -253,6 +256,7 @@ const flipCard = cardObject => {
         flippedCards.splice(cardPosition, 1);
         cardObject.element.classList.remove("flipped")
             canInteractWithGame = true;
+            // runComputerMaybe();
         }, 700)
     }
 

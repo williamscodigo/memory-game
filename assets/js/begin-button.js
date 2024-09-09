@@ -54,6 +54,7 @@ addBeginPress(() => {
         players[1].score = 0; //set player2 initial score
         canInteractWithGame = true;
         startGame.hide();
+        if (currentPlayer) computerTurn()
     }else{
         //no radio button option selected!
         //change this to show message on ui instead of console window
